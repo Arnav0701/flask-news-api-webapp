@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %} Logout {% endblock %}
+
+{% block content %}
+<style>
+  /* Full page centering */
+  .logout-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* relative to content area in base.html */
+    background-color: #f7f7f7;
+  }
+
+  .logout-box {
+    background-color: #fff;
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center; /* center everything inside box */
+  }
+
+  .logout-box h2 {
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  .btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .logout-box button {
+    width: 120px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 30px;
+    border: none;
+  }
+
+  .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+  }
+
+  .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+  }
+
+  .logout-box .btn:hover {
+    opacity: 0.9;
+  }
+</style>
+
+<div class="logout-container">
+  <div class="logout-box">
+    <h2>Are you sure you want to logout?</h2>
+    <form method="POST" action="/logout">
+      <div class="btn-group">
+        <button type="submit" name="category" value="yes" class="btn btn-danger">Logout</button>
+        <button type="submit" name="category" value="no" class="btn btn-secondary">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

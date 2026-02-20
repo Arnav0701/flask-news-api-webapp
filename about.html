@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %} NewsToday-About {% endblock %}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body class="bg-light">
+  <!-- Navbar -->
+  {% block content %}
+<main class="container my-5">
+  <div class="card shadow-sm border-0">
+    <div class="card-body p-5">
+
+      <h1 class="text-center fw-bold mb-3">About NewsToday</h1>
+      <p class="text-center text-muted mb-4">
+        NewsToday is a modern news aggregation platform designed to deliver reliable and personalized news updates in a clean and focused interface.
+      </p>
+
+      <hr class="mb-4">
+
+      <h4 class="fw-semibold mb-3">Our Mission</h4>
+      <p>
+        Our mission is to simplify the way people consume news by bringing together trusted sources and presenting information in a structured, distraction-free environment.
+        We aim to make staying informed efficient and accessible for everyone.
+      </p>
+
+      <h4 class="fw-semibold mt-4 mb-3">What We Offer</h4>
+      <ul class="ps-3">
+        <li>Curated news across categories including Technology, Business, Sports, Politics, and more.</li>
+        <li>Personalized feeds based on user preferences.</li>
+        <li>Real-time updates using reliable news APIs.</li>
+        <li>Search functionality for quick topic-based discovery.</li>
+      </ul>
+
+      <h4 class="fw-semibold mt-4 mb-3">Personalization</h4>
+      <p>
+        Users can select their preferred categories and receive content tailored to their interests.
+        This ensures a more relevant and focused news experience.
+      </p>
+
+      <h4 class="fw-semibold mt-4 mb-3">Our Vision</h4>
+      <p>
+        In an age of information overload, NewsToday strives to create a streamlined digital experience that prioritizes clarity, relevance, and usability.
+        We continue to improve the platform with smarter filtering, enhanced personalization, and expanded coverage.
+      </p>
+
+      <h4 class="fw-semibold mt-4 mb-3">Contact</h4>
+      <p>
+        For feedback or support inquiries, please contact:
+        <a href="mailto:support@newstoday.com" class="text-decoration-none fw-medium">
+          support@newstoday.com
+        </a>
+      </p>
+
+    </div>
+  </div>
+</main>
+{% endblock %}
+  <!-- Footer -->
+</body>
+
+</html>

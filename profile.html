@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %} NewsToday-Profile {% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- Navbar -->
+    {% block content %}
+    <!-- Profile Section -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ 'danger' if category == 'fail' else 'success' }} alert-dismissible fade show"
+        role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <main class="flex-grow-1">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card shadow-sm border-0 rounded-3 p-4">
+                        
+                        <!-- User Details -->
+                        <div class="mb-2"><strong>User ID:</strong> {{ user_id }}</div>
+                        <div class="mb-2"><strong>Username:</strong> {{ user.name }}</div>
+                        <div class="mb-2"><strong>Email:</strong> {{ user.email }}</div>
+                        <!-- <div class="mb-2"><strong>Preferences:</strong> {% for preference in preferences %}
+                            <button class="btn btn-secondary px-4"> {{ preference }} </button>
+                            {% endfor %}
+                        </div> -->
+                        <div class="mb-2">
+                            <strong>Preferences:</strong>
+
+                            <div class="d-flex flex-wrap gap-2 mt-2">
+                                {% for preference in preferences %}
+                                    <span class="badge rounded-pill bg-secondary fs-6 px-3 py-2">
+                                        {{ preference }}
+                                    </span>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <div class="mt-4 text-center">
+                            <a href="/edit_preferences" class="btn btn-outline-dark">Edit Preferences</a>
+                            <a href="/edit_profile" class="btn btn-outline-dark">Edit Profile</a>
+                            <a href="/logout" class="btn btn-danger">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    {% endblock %}
+    <!-- Footer -->
+
+</body>
+
+</html>

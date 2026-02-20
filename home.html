@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %} NewsToday-Home {% endblock %}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="d-flex flex-column min-vh-100 bg-light">
+
+  {% block content %}
+
+  <div class="container text-center mt-4">
+    <form method="POST" action="/home">
+      <div class="d-flex flex-wrap justify-content-center gap-2">
+        {% for preference in preferences %}
+          <button type="submit" name="category" value="{{ preference }}" class="btn btn-secondary px-4 rounded-pill">
+            {{ preference }}
+          </button>
+        {% endfor %}
+      </div>
+    </form>
+  </div>
+
+  <!-- News Articles Section -->
+  <main class="flex-grow-1">
+    <div class="container py-4">
+      <div class="border rounded p-4 shadow-sm bg-white" style="min-height:400px;">
+        <h4 class="mb-3 text-primary">{{ category }}</h4>
+        <div class="list-group text-start">
+          {% if articles %}
+            {% for article in articles %}
+              <a href="{{ article.url }}" target="_blank" class="list-group-item list-group-item-action mb-4 rounded shadow-sm p-3 d-flex flex-row text-decoration-none">
+                <!-- Left side: Title, Source, Date, Description -->
+                <div class="flex-grow-1 pe-3">
+                  <h5 class="fw-bold">{{ article.title }}</h5>
+                  <small class="text-muted d-block mb-2">{{ article.source.name }} — 
+                    <span class="text-primary">{{ article.publishedAt[:10] }}</span>
+                  </small>
+                  <p class="mb-1">{{ article.description if article.description else "No description available" }}</p>
+                </div>
+
+                <!-- Right side: Image -->
+                <div class="ms-3">
+                  <img src="{{ article.urlToImage }}" alt="Image Not Found" class="img-fluid" style="max-width: 200px; height: auto;">
+                </div>
+              </a>
+            {% endfor %}
+          {% else %}
+            <p class="text-muted">No articles found. Please try again later.</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </main>
+
+  {% endblock %}
+
+</body>
+
+</html>

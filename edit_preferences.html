@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %} NewsToday - Edit Preferences {% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ 'danger' if category == 'fail' else 'success' }} alert-dismissible fade show"
+                        role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+
+            <div class="card shadow-sm border-0 rounded-3 p-4">
+
+                <h4 class="mb-3">Edit Preferences</h4>
+
+                <div class="mb-3">
+                    <strong>User ID:</strong> {{ user_id }}
+                </div>
+
+                <hr>
+
+                <form method="POST" action="/edit_preferences">
+
+                    <div class="row">
+
+                        {% for category in available_categories %}
+                            <div class="col-md-6">
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input"
+                                           type="checkbox"
+                                           name="preferences"
+                                           value="{{ category }}"
+                                           {% if category in preferences %}checked{% endif %}>
+                                    <label class="form-check-label">
+                                        {{ category }}
+                                    </label>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+
+                    <hr>
+
+                    <div class="d-flex justify-content-end gap-2">
+                        <a href="/profile" class="btn btn-outline-secondary">
+                            back
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            Save Changes
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

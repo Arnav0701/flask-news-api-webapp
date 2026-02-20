@@ -1,0 +1,12 @@
+{
+    "demo_user": {
+        "email": "user@gmail.com",
+        "name": "User",
+        "password": "scrypt:32768:8:1$UTNaUTGYTDxqhAma$3acf0aa561a296cd30da55be36cde9ccde4ac98fb73f40f6a05838c70291b04044395f641b793b5d63af9988cbfab2484fa975ec36848e78ef2b7e0e28ad1ad0",
+        "preference": [
+            "Finance",
+            "Cricket",
+            "Government"
+        ]
+    }
+}

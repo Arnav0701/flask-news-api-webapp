@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %} NewsToday-Edit Profile {% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- Navbar -->
+    {% block content %}
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ 'danger' if category == 'fail' else 'success' }} alert-dismissible fade show"
+        role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <form id="editForm" method="post" action="edit_profile">
+        <div class="mb-3">
+            <h4>{{user_id}}</h4>
+        </div>
+        <div class="mb-3">
+            <label for="newName" class="form-label">New Name</label>
+            <input type="text" class="form-control" id="newName" placeholder="Enter new name" name="newName" required>
+        </div>
+        <div class="mb-3">
+            <label for="newEmail" class="form-label">New Email</label>
+            <input type="email" class="form-control" id="newEmail" placeholder="Enter new email" name="newEmail"
+                required>
+        </div>
+        
+        <div class="mb-3">
+            <label for="ConfPassword" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="ConfPassword" placeholder="enter Password"
+                name="ConfPassword" required>
+        </div>
+        
+        <button type="submit" class="btn btn-success w-100">Save Changes</button>
+    </form>
+
+    <div class="text-center mt-3">
+        <p>Cancel change?
+            <a href="/profile" class="btn btn-primary">Cancel</a>
+        </p>
+    </div>
+    </div>
+    </div>
+{% endblock %}
+    <!-- Footer -->
+
+</body>
+
+</html>

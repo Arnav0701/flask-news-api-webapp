@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%  block content %}  NewsToday-Signup  {% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .form-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+
+    <div class="container">
+        <div class="form-container">
+            <h2 class="text-center mb-4">Signup</h2>
+
+            <!-- 🔹 Flash Messages -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                {% for category, message in messages %}
+                  <div class="alert alert-{{ 'danger' if category == 'fail' else 'success' }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
+
+            <!-- Signup Form -->
+            <form id="signupForm" method="post">
+                <div class="mb-3">
+                    <label for="signupName" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="signupName" placeholder="Enter your name"
+                        name="signupName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="signupID" class="form-label">ID</label>
+                    <input type="text" class="form-control" id="signupID" placeholder="Enter Unique ID"
+                        name="signupID" required>
+                </div>
+                <div class="mb-3">
+                    <label for="signupEmail" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="signupEmail" placeholder="Enter your email"
+                        name="signupemail" required>
+                </div>
+                <div class="mb-3">
+                    <label for="signupPassword" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="signupPassword" placeholder="Choose a Password"
+                        name="signupPassword" required>
+                </div>
+                <div class="mb-3">
+                    <label for="confirmPassword" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" id="confirmPassword" placeholder="Re-enter Password"
+                        name="confirmPassword" required>
+                </div>
+                <button type="submit" class="btn btn-success w-100">Signup</button>
+            </form>
+
+            <div class="text-center mt-3">
+                <p>Already have an account?
+                    <a href="/" class="btn btn-primary">Login</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
