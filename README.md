@@ -12,6 +12,7 @@ Users can Log In using their credentials.
 
 Session management ensures protected routes require authentication.
 
+
 2️⃣ Preference Selection
 
 Users can select multiple news categories (Technology, Business, Sports, AI, etc.).
@@ -19,6 +20,7 @@ Users can select multiple news categories (Technology, Business, Sports, AI, etc
 Preferences are stored in a local data.json file.
 
 Users can update their preferences anytime.
+
 
 3️⃣ News Fetching
 
@@ -38,6 +40,7 @@ View news based on saved preferences
 
 Browse latest news
 
+
 4️⃣ Additional Features
 
 Profile view and edit functionality
@@ -49,6 +52,8 @@ Contact form
 Logout functionality with session clearing
 
 Secure environment variable handling for API keys
+
+
 
 🛠️ Tech Stack
 
@@ -63,6 +68,8 @@ API Integration: NewsAPI
 Data Storage: JSON (local file system)
 
 Session Management: Flask Sessions
+
+
 
 🔐 Security Features
 
