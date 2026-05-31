@@ -1,5 +1,12 @@
 # flask-news-api-webapp
 A Flask-based personalized news web application with user authentication, preference management, and real-time news fetching using NewsAPI.
+<br>
+<img width="1891" height="897" alt="Screenshot 2026-06-01 003250" src="https://github.com/user-attachments/assets/45f58996-2c8a-49c2-8d2d-4450654849ad" />
+<br>
+<img width="1891" height="898" alt="Screenshot 2026-06-01 003406" src="https://github.com/user-attachments/assets/ec1a7428-96b8-4c8f-8c08-6ef294d5ddc6" />
+<br>
+<img width="1891" height="896" alt="Screenshot 2026-06-01 003315" src="https://github.com/user-attachments/assets/27bb501f-2623-4f67-b08c-9fcd13c11f77" />
+<br>
 
 # Project Flow:
 1️⃣ User Authentication
